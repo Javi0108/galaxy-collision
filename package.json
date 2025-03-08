@@ -12,6 +12,7 @@
     "vite": "^6.2.0"
   },
   "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.2.5",
     "cannon-es": "^0.20.0",
     "lil-gui": "^0.20.0",
     "three": "^0.174.0"

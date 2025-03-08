@@ -203,7 +203,7 @@ debugObject.reset = () => {
   debugObject.generateGalaxy();
 };
 
-document.querySelector("button").addEventListener("click", debugObject.reset);
+document.getElementById("contactBtn").addEventListener("click", debugObject.reset);
 
 /**
  * Resize

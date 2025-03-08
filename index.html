@@ -9,34 +9,103 @@
   <body>
     <script type="module" src="/src/main.js"></script>
     <div id="container"></div>
-    <button>Reset collision</button>
+    <div class="wrapper">
+      <a id="contactBtn" href="#">Reset collision</a>
+    </div>
+    <svg
+      style="visibility: hidden; position: absolute"
+      width="0"
+      height="0"
+      xmlns="http://www.w3.org/2000/svg"
+      version="1.1"
+    >
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur
+            in="SourceGraphic"
+            stdDeviation="10"
+            result="blur"
+          ></feGaussianBlur>
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+            result="goo"
+          ></feColorMatrix>
+          <feComposite
+            in="SourceGraphic"
+            in2="goo"
+            operator="atop"
+          ></feComposite>
+        </filter>
+      </defs>
+    </svg>
   </body>
 </html>
-
 <style>
+  @import '@fontsource-variable/dm-sans';
+
   body {
     margin: 0;
     padding: 0;
   }
 
-  button {
-    min-width: 100px;
+  .wrapper {
+    font-family: 'DM Sans Variable', sans-serif;
     position: fixed;
-    top: 5%;
+    top: 10%;
     right: 10%;
-    background-color: #e2594f;
-    border: 1px solid #e2584f;
-    border-radius: 50px;
-    padding: 10px 20px;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    transition: all 0.3s;
+    -webkit-filter: url("#goo");
+    filter: url("#goo");
   }
 
-  button:hover {
-    background-color: transparent;
-    color: #e2584f;
-    cursor: pointer;
+  #contactBtn {
+    display: inline-block;
+    text-align: center;
+    background: #EB5B47;
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
+    border-radius: 10px;
+    position: relative;
+    text-decoration: none;
+  }
+
+  #contactBtn:before,
+  #contactBtn:after {
+    width: 4.4em;
+    height: 2.95em;
+    position: absolute;
+    content: "";
+    display: inline-block;
+    background: #4e1e17;
+    border-radius: 50%;
+    -webkit-transition: -webkit-transform 0.4s ease;
+    transition: -webkit-transform 0.4s ease;
+    transition: all 0.4s ease;
+    transition:
+      all 1s ease,
+      -webkit-transform 0.4s ease;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    z-index: -1;
+  }
+
+  #contactBtn:before {
+    top: -25%;
+    left: 10%;
+  }
+
+  #contactBtn:after {
+    bottom: -25%;
+    right: 10%;
+  }
+
+  #contactBtn:hover:before,
+  #contactBtn:hover:after {
+    -webkit-transform: none;
+    transform: none;
+    background: #32130f;
+
   }
 </style>
