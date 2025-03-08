@@ -9,7 +9,7 @@
   <body>
     <script type="module" src="/src/main.js"></script>
     <div id="container"></div>
-    <!-- <canvas id="canvas"></canvas> -->
+    <button>Reset collision</button>
   </body>
 </html>
 
@@ -17,5 +17,26 @@
   body {
     margin: 0;
     padding: 0;
+  }
+
+  button {
+    min-width: 100px;
+    position: fixed;
+    top: 5%;
+    right: 10%;
+    background-color: #e2594f;
+    border: 1px solid #e2584f;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+
+  button:hover {
+    background-color: transparent;
+    color: #e2584f;
+    cursor: pointer;
   }
 </style>
